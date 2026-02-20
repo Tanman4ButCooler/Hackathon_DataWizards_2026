@@ -102,7 +102,7 @@ body {
 
 .sidebar-section h3 {
 
-    color: #7f8c8d;
+    color: #f0f7ff;
     font-size: 0.9rem;
     margin-bottom: 12px;
     text-transform: uppercase;
@@ -156,6 +156,7 @@ body {
 /** MAIN CONTENT /**/
 .main-content {
 
+    height: 80%;
     background: #f9f9f9;
     padding: 20px;
     overflow: hidden;
@@ -176,7 +177,7 @@ body {
 /** Night mode map /**/
 .map-container.night {
 
-    background: #1a2634;
+    background: #f0f7ff;
 
 }
 
@@ -194,7 +195,7 @@ body {
     position: absolute;
     top: 15px;
     left: 15px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 0, 0, 0.9);
     padding: 12px;
     border-radius: 6px;
     z-index: 10;

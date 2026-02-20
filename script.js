@@ -17,11 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
     //About button tells us about the developers of this program
-    if (weekBtn) {
-        nav-btn.addEventListener("click", function () {
+    if (abtBtn) {
+        abtBtn.addEventListener("click", function () {
             alert("Sudev: Aspiring Pilot\n");
          });
     }
-
-
 });
