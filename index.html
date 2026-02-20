@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edmonton Accident Report</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- initial scale lets us control the zoom level when we first load the page -->
+</head>
+<body> 
+
+
+    <div class="container">
+        <!-- TOP BAR -->
+        <header class="top-bar">
+            <div class="title">Edmonton accidents tracker</div>
+        
+        <div class = "date-filter"></div>
+        <button class="date-btn active">Today</button>
+        <button class="date-btn">This week</button>
+        <button class="date-btn">This month</button>
+        <div>
+            
+    <!-- This line connects the JS file -->
+    <script src="script.js"></script>
+        
+
+    <div class = "legend-toggle "></div>
+        <!-- The differance between a span class and a button class is that a button class is interactive and can be clicked,
+          span class is just nice to look at  -->
+        <span class = "vechine" Vechine></span>
+        <span class = "pedestrian" Pedestrian></span>
+        <span class = "Cyclist" Cyclist></span>
+        <span class = "other" Other></span>
+    </div>
+    </header>
+    <!-- Left Side bar-->
+
+    <aside class="sidebar">
+    <button class onclick=""nav-btn active>Map></button>  -> Testing 
+    <button class="nav-btn">Accident Lists</button>
+    <button class="nav-btn">Heat Map</button>
+    <button class="nav-btn">Stat</button>
+    <button class="nav-btn">Report</button>"
+    <button class="nav-btn">About</button>
+    
+    </div class="sidebar-section">
+    <h3>Severity</h3>
+    <div class="filter-option"><span class="toggle-switch active"></span> High</div>
+    <div class="filter-option"><span class = "toggle-switch"></span> Medium</div>
+    <div class = "filter-option"><span class = "toggle-switch"></span> Low</div>
+    </div>
+    
+    <div class = "sidebar-section">
+     <h3>Time of day</h3>
+        <div class="time-toggle" id="timeToggle"></div>
+        <div class = "time-option active" data-time = "day">Day<div>
+        <div class = "time-option active" data-time = "night">Night<div>
+        </div>
+    </div>
+
+    <div class = "siderbar-section">
+        <h3>Weather</h3>
+        <div class = "filter-option"><span class="toggle-switch active"></span> Clear</div>
+        <div class = "filter-option"><span class="toggle-switch"></span> Rainy</div>
+        <div class = "filter-option"><span class="toggle-switch"></span> Snowy</div>
+
+    <!--Main Map-->
+    <main class="main-content">
+        <div class="main-container" id="mapContainer">
+            <div class="map-overlay">
+                <strong>Edmonton</strong><br> 127 accidents shown
+            </div>
+
+            <!--Google Maps API-->
+            <iframe class="google-maps-iframe" src="https://www.google.com/maps/d/embed?mid=1yNTTlbveUw0jKCYx8BcslMt7pyJiMZ4&ehbc=2E312F"title="Edmonton Map"></iframe>
+            <!--Example Point: TO be replaced by actual data-->
+            <div class="accident-point" style="top:30%; left:40%" onclick="showPopup()"></div>
+    </main>
+
+    <!--Right Info-->
+    <aside class="info-panel">
+        <div class="panel-header">
+            <h2>Selected Incident</h2>
+            <div>ID: ACC-4872</div>
+        </div>
+        
+        <div class="info-card">
+            <div class="label">Location</div>
+            <div>Jasper Ave & 109 St</div>
+        </div>
+        <div class="info-card">
+            <div class="label">Type</div>
+            <div>Vahicle Collision</div>
+        </div>
+        <div class="info-card">
+            <div class="label">Severity</div>
+            <div style="color:#d41a05;">High - Injuries</div>
+        </div>
+        <div class="info-card">
+            <div class="label">Weather</div>
+            <div>Clear, -5°C</div>
+        </div>
+    </aside>
+
+</body>
