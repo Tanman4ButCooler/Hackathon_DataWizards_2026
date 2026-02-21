@@ -1,3 +1,4 @@
+// Once my HTML file is loaded the EvenListener starts working.
 document.addEventListener("DOMContentLoaded", function () {
 
     //Buttons 
@@ -13,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //Button functions
     if (todayBtn) {
         todayBtn.addEventListener("click", function () {
-            alert("Today button clicked!");
+            alert("Today Accident Report\n10 accidents, no fatality");
         });
     }
 
@@ -22,19 +23,27 @@ document.addEventListener("DOMContentLoaded", function () {
         abtBtn.addEventListener("click", function () {
             window.location.href = "aboutUs.html";
             // alert("Sudev: Aspiring Pilot\nMeet: Aspiring Software Engineer\nRythem:Aspiring Software Developer\nTanveer:Aspiring Game Developer");
-         });
+        });
     }
 
+    //Month Chart
     if (monthBt) {
         monthBt.addEventListener("click", function () {
         window.location.href = "charts.html";
     });
     } 
     
+    //Week Chart
     if (weekBtn) {
         weekBtn.addEventListener("click", function () {
         window.location.href = "charts.html";
     });
     } 
+
+    document.querySelector(".toggle").forEach(toggle => {
+        toggle.addEventListener("click", () => {
+            toggle.classList.toggle("active");
+        });
+    });
 
 });
