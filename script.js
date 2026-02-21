@@ -25,5 +25,16 @@ document.addEventListener("DOMContentLoaded", function () {
          });
     }
 
+    if (monthBt) {
+        monthBt.addEventListener("click", function () {
+        window.location.href = "charts.html";
+    });
+    } 
     
+    if (weekBtn) {
+        weekBtn.addEventListener("click", function () {
+        window.location.href = "charts.html";
+    });
+    } 
+
 });

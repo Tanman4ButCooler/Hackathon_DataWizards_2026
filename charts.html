@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  <canvas id="monthly" style="width:100%;max-width:700px;height:400px;"></canvas>
+  <canvas id="weekly" style="width:100%;max-width:700px;height:400px;"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+
+  <script>
+    const monthlyChart = document.getElementById("monthly");
+    const weeklyChart = document.getElementById("weekly");
+    
+    // Scripting of this HTML file is easier than on JS
+    new Chart(monthlyChart, {
+      type: "bar",
+      data: {
+        labels: ["1","2","3","4","5","6","7"],
+        datasets: [{ label:"Accidents by Month", data:[10,11,30,12,11,32,21] }]
+      }
+    });
+
+    new Chart(weeklyChart, {
+      type: "bar",
+      data: {
+        labels: ["Mon","Tue","Wed","Thu", "Fri","Sat","Sun"],
+        datasets: [{ label:"Accidents by Week", data:[10,11,30,12,11,32,21] }]
+      }
+    });
+
+  </script>
+
+</body>
+</html>
