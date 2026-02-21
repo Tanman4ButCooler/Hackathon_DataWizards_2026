@@ -16,10 +16,14 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("Today button clicked!");
         });
     }
+
     //About button tells us about the developers of this program
     if (abtBtn) {
         abtBtn.addEventListener("click", function () {
-            alert("Sudev: Aspiring Pilot\nMeet: Aspiring Software Engineer\nRythem:Aspiring Software Developer\nTanveer:Aspiring Game Developer");
+            window.location.href = "aboutUs.html";
+            // alert("Sudev: Aspiring Pilot\nMeet: Aspiring Software Engineer\nRythem:Aspiring Software Developer\nTanveer:Aspiring Game Developer");
          });
     }
+
+    
 });
