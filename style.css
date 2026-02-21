@@ -158,7 +158,7 @@ body {
 
     height: 80%;
     background: #f9f9f9;
-    padding: 20px;
+    padding: 50px;
     overflow: hidden;
 
 }
@@ -166,7 +166,7 @@ body {
 .map-container {
 
     background: #a4d2ff;
-    border-radius: 8px;
+    border-radius: 10px;
     height: 100%;
     position: relative;
     overflow: hidden;
@@ -184,7 +184,7 @@ body {
 .google-maps-iframe {
 
     width: 100%;
-    height: 100%;
+    height: 700px;
     border: none;
     display: block;
 
@@ -193,7 +193,7 @@ body {
 .map-overlay {
 
     position: absolute;
-    top: 15px;
+    top: 350px;
     left: 15px;
     background: rgba(255, 0, 0, 0.9);
     padding: 12px;
@@ -266,8 +266,9 @@ body {
 
 .info-card {
 
-    background: #f8f9fa;
+    background: rgb(0, 242, 255);
     border-left: 4px solid #3498db;
+    color: #000000;
     padding: 15px;
     margin-bottom: 15px;
 
@@ -278,6 +279,7 @@ body {
 
     grid-column: 1 / -1;
     background: #ecf0f1;
+    color: #000000;
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
