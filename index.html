@@ -12,12 +12,13 @@
     <div class="container">
         <!-- TOP BAR -->
         <header class="top-bar">
+            
             <div class="title">Edmonton accidents tracker</div>
         
         <div class = "date-filter"></div>
-        <button class="nav-btn active" onclick="mapClicked()">Today</button> 
-        <button class="date-btn">This week</button>
-        <button class="date-btn">This month</button>
+        <button class="todayBtn" onclick="mapClicked()">Today</button> 
+        <button class="weekBtn">This week</button>
+        <button class="monthBtn" onclick="showChart()">This month</button>
         <div>      
 
     <div class = "legend-toggle "></div>
@@ -32,33 +33,33 @@
     <!-- Left Side bar-->
 
     <aside class="sidebar">
-    <button class onclick=""nav-btn active>Map></button>  -> Testing 
-    <button class="nav-btn">Accident Lists</button>
-    <button class="nav-btn">Heat Map</button>
-    <button class="nav-btn">Stat</button>
-    <button class="nav-btn">Report</button>
-    <button class="nav-btn" onclick="aboutClicked()">About</button>
+    <button class onclick=""nav-btn active>Map</button>
+    <button class="accidentsListBtn">Accident Lists</button>
+    <button class="heatMapBtn">Heat Map</button>
+    <button class="statBtn">Stat</button>
+    <button class="reportBtn">Report</button>
+    <button class="aboutBtn" onclick="goToPage()">About</button>
     
     </div class="sidebar-section">
     <h3>Severity</h3>
-    <div class="filter-option"><span class="toggle-switch active"></span> High</div>
-    <div class="filter-option"><span class = "toggle-switch"></span> Medium</div>
-    <div class = "filter-option"><span class = "toggle-switch"></span> Low</div>
+        <div class="filter-option"><span class="toggle toggleHigh"></span>High</div>
+        <div class="filter-option"><span class = "toggle toggleMedium"></span>Medium</div>
+        <div class = "filter-option"><span class = "toggle toggleLow"></span>Low</div>
     </div>
     
     <div class = "sidebar-section">
      <h3>Time of day</h3>
         <div class="time-toggle" id="timeToggle"></div>
-        <div class = "time-option active" data-time = "day">Day<div>
-        <div class = "time-option active" data-time = "night">Night<div>
+        <div class ="time-option active" data-time = "day">Day<div>
+        <div class ="time-option active" data-time = "night">Night<div>
         </div>
     </div>
 
     <div class = "siderbar-section">
         <h3>Weather</h3>
-        <div class = "filter-option"><span class="toggle-switch active"></span> Clear</div>
-        <div class = "filter-option"><span class="toggle-switch"></span> Rainy</div>
-        <div class = "filter-option"><span class="toggle-switch"></span> Snowy</div>
+        <div class = "filter-option"><span class="weatherToggle toggle-switch active"></span> Clear</div>
+        <div class = "filter-option"><span class="weatherToggle toggle-switch"></span> Rainy</div>
+        <div class = "filter-option"><span class="weatherToggle toggle-switch"></span> Snowy</div>
 
     <!--Main Map-->
     <main class="main-content">
@@ -118,6 +119,6 @@
 
     <!-- This line connects the JS file -->
     <script src="script.js"></script>
-    
+
 </body>
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <title>Edmonton Accident Report</title> -->
+    <link rel="stylesheet" href="style.css">
+    <!-- initial scale lets us control the zoom level when we first load the page -->
+</head>
+
+<body>
+
+  <canvas id="monthly" style="width:100%;max-width:800px;height:100;"></canvas>
+  <canvas id="weekly" style="width:100%;max-width:800px;height:100;"></canvas>
+  <div class="charts"><span class="chartsView"></span>Charts</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0"></script>
+
+  <script>
+
+    const monthlyChart = document.getElementById("monthly");
+    const weeklyChart = document.getElementById("weekly");
+    
+
+    // Scripting of this HTML file is easier than on JS
+    // Need to scroll down lol to see other charts, Sudev thats ur job.
+    new Chart(monthlyChart, {
+      type: "bar",
+      data: {
+        labels: ["1","2","3","4","5","6","7"],
+        datasets: [
+          { 
+            label: "Accidents by Month",
+            data: [10, 11, 30, 12, 11, 32, 21],
+            borderColor: ["black"],
+            borderWidth: 2,
+            backgroundColor: "red"
+          }
+        ]
+      }
+    });
+
+    new Chart(weeklyChart, {
+      type: "bar",
+      data: {
+        labels: ["Mon","Tue","Wed","Thu", "Fri","Sat","Sun"],
+        datasets: [
+        { 
+          label:"Accidents by Week", 
+          data:[2,2,1,12,2,3,1],
+          borderColor: ["black"],
+          borderWidth: 2,
+          backgroundColor: "purple"
+      }
+    ]
+  }
+});
+
+  </script>
+
+</body>
+</html>

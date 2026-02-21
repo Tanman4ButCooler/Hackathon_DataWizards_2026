@@ -300,43 +300,25 @@ body {
 }
 
 /** Toggle switch style /**/
-.toggle-switch {
+.toggle {
 
     display: inline-block;
     width: 36px;
     height: 18px;
-    background: #ddd;
+    border-radius: 50%;
+    background: #000000;
+    border: 2px solid #999;
     border-radius: 9px;
     position: relative;
     cursor: pointer;
-
 }
 
 .toggle-switch.active {
 
-    background: #3498db;
+    background: #ffffff;
 
 }
 
-.toggle-switch::after {
-
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background: white;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-    transition: 0.2s;
-
-}
-
-.toggle-switch.active::after {
-
-    left: 20px;
-
-}
 
 .detail-item {
 
