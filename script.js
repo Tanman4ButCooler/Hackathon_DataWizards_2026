@@ -40,10 +40,18 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     } 
 
+    if (reportBtn) {
+        reportBtn.addEventListener("click", function () {
+        window.prompt("Location: City");
+        window.prompt("Severity: High, Medium or Low");
+        window.prompt("Day time: Day or Night");
+        window.prompt("Weather: Cold or Warm");
+        });
+    }
+
     document.querySelector(".toggle").forEach(toggle => {
         toggle.addEventListener("click", () => {
             toggle.classList.toggle("active");
         });
     });
-
 });
