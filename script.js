@@ -413,6 +413,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 showAccidentList();
             } else if (view === 'stats') {
                 showStatistics();
+            } else if (view === 'about-us') {
+                window.location.href = "aboutUs.html";
             } else {
                 // Return to map view
                 location.reload(); // Simple way to reset

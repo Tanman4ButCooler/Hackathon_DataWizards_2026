@@ -11,7 +11,6 @@ Ensures that all citizens are well informed about the conditions of the roads, a
 
 Turning raw data from the streets into a real-time shield for the world.
 
-Meet on the beat, Sudev can't be beat, Rythem brings the heat, Tanveer makes it sweet — real-time tracking, world complete by the wizards of data.
 
 Data Wizards has worked extremely hard to come up with a solution to rebuild the 511 website to make it more optimized.
 
