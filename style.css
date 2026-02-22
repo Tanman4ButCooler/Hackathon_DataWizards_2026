@@ -9,7 +9,7 @@ body {
 
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: 100px 1fr 300px;
+    grid-template-columns: 100px 1fr 300px; 
     height: 100vh;
     gap: 1px;
     background: #ddd;
@@ -59,6 +59,7 @@ body {
 
     background: white;
     padding: 20px 0;
+    height: 1000px;
     overflow-y: auto;
 
 }

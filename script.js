@@ -2,7 +2,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
     //Buttons 
-<<<<<<< Updated upstream
     const todayBtn = document.querySelector(".todayBtn");
     const weekBtn = document.querySelector(".weekBtn");
     const monthBt = document.querySelector(".monthBtn");
@@ -11,16 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const statBtn = document.querySelector(".statBtn");
     const reportBtn = document.querySelector(".reportBtn");
     const abtBtn = document.querySelector(".aboutBtn");
-=======
-    const todayBtn = document.querySelector(".nav-btn.active");
-    const weekBtn = document.querySelector(".week-btn");
-    const monthBt = document.querySelector(".month-btn");
-    const accidentList = document.querySelector(".nav-btn");
-    const heatMapBtn = document.querySelector(".nav-btn");
-    const statBtn = document.querySelector(".nav-btn");
-    const reportBtn = document.querySelector(".nav-btn");
-    const abtBtn = document.querySelector(".about-btn");
->>>>>>> Stashed changes
 
     //Button functions
     if (todayBtn) {
