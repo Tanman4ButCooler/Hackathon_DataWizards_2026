@@ -1,335 +1,558 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
 body {
-
-    background: #f5f7fa;
+    background-color: #f5f7fa;
     color: #333;
-
+    overflow-x: hidden;
 }
 
 .container {
-
     display: grid;
     grid-template-rows: auto 1fr auto;
-    grid-template-columns: 100px 1fr 300px; 
+    grid-template-columns: 200px 1fr 320px;
     height: 100vh;
+    max-height: 100vh;
     gap: 1px;
-    background: #ddd;
-
+    background-color: #ddd;
 }
 
-/** TOP BAR /**/
+/* TOP BAR */
 .top-bar {
-
-    grid-column: 1 / -1;
-    background: #2c3e50;
+    grid-column: 1 / span 3;
+    background-color: #2c3e50;
     color: white;
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
 }
 
 .title {
-
     font-weight: 700;
-    font-size:  1.4rem;
+    font-size: 1.4rem;
     color: #3498db;
+}
 
+.date-filter {
+    display: flex;
+    gap: 10px;
 }
 
 .date-btn {
-
-    background: #34495e;
+    background-color: #34495e;
     color: white;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
 
+.date-btn:hover {
+    background-color: #3d566e;
 }
 
 .date-btn.active {
-
-    background: #3498db;
-
+    background-color: #3498db;
 }
 
-/** LEFT SIDEBAR /**/
+.legend-toggle {
+    display: flex;
+    gap: 15px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.legend-item:hover {
+    opacity: 0.8;
+}
+
+.legend-item.inactive {
+    opacity: 0.4;
+}
+
+.icon-vehicle { color: #e74c3c; }
+.icon-pedestrian { color: #f39c12; }
+.icon-cyclist { color: #27ae60; }
+.icon-severe { color: #9b59b6; }
+
+/* LEFT SIDEBAR */
 .sidebar {
-
-    background: white;
+    background-color: white;
     padding: 20px 0;
-    height: 1000px;
+    display: flex;
+    flex-direction: column;
     overflow-y: auto;
-
+    z-index: 1000;
 }
 
-/** Start reworking buttons*/
-.map, .accidentsListBtn, .heatMapBtn, .statBtn, .reportBtn, .aboutBtn {
+.nav-btn {
     display: flex;
     align-items: center;
     gap: 12px;
     padding: 14px 20px;
-    width: 100%;
     border: none;
     background: none;
+    text-align: left;
+    color: #333;
     cursor: pointer;
+    transition: all 0.2s;
     border-left: 4px solid transparent;
 }
-/** <div style = background white; padding: 20px; border-radius: 16px; height: 100%; overflow-y: auto;"> **/
-.map:hover, .accidentsListBtn:hover, .heatMapBtn:hover, .statBtn:hover, .reportBtn:hover, .aboutBtn:hover {
 
-    background: #f0f7ff;
+.nav-btn:hover {
+    background-color: #f0f7ff;
     border-left-color: #3498db;
-
 }
 
-.map.active, .accidentsListBtn.active, .heatMapBtn.active, .statBtn.active, .reportBtn.active, .aboutBtn.active {
-
-    background: #e8f4fc;
+.nav-btn.active {
+    background-color: #e8f4fc;
     border-left-color: #3498db;
     color: #2980b9;
     font-weight: 600;
-
 }
 
 .sidebar-section {
-
-    padding: 0 20px;
     margin-top: 25px;
-    color: black;
-    
+    padding: 0 20px;
 }
 
 .sidebar-section h3 {
-
-    color: #f0f7ff;
     font-size: 0.9rem;
+    color: #7f8c8d;
     margin-bottom: 12px;
     text-transform: uppercase;
-
+    letter-spacing: 0.5px;
 }
 
 .filter-option {
-
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 8px;
-    margin-bottom: 12px;
-
-}
-/** Day/Night Toggle - NEW /**/
-.time-toggle {
-
-    display: flex;
-    background: #ecf0f1;
-    border-radius: 8px;
-    padding: 4px;
-    margin-top: 10px;
-
-}
-
-.time-option {
-
-    flex: 1;
-    padding: 8px;
-    text-align: center;
-    border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
+}
+
+.toggle-switch {
+    width: 40px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-switch.active {
+    background-color: #3498db;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
     transition: all 0.2s;
-
 }
 
-.time-option.active {
-
-    background: #3498db;
-    color: white;
-
+.toggle-switch.active::after {
+    left: 22px;
 }
 
-.time-option i {
-
-    margin-right: 4px;
-
-}
-
-/** MAIN CONTENT /**/
+/* CSS FOR MY MAIN CONTENT */
 .main-content {
-    height: 80%;
-    background: #f9f9f9;
-    padding: 50px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    position: relative;
     overflow: hidden;
-
 }
 
 .map-container {
-    background: #a4d2ff;
-    border-radius: 10px;
     height: 100%;
-    position: relative;
-    overflow: hidden;
-    /**transition: background 0.3s; /**/
-
-}
-
-/** Night mode map /**/
-.map-container.night {
-
-    background: #f0f7ff;
-
-}
-
-.google-maps-iframe {
-
     width: 100%;
-    height: 700px;
-    border: none;
-    display: block;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
 
+#map {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }
 
 .map-overlay {
-
     position: absolute;
-    top: 350px;
+    top: 15px;
     left: 15px;
-    background: rgba(255, 0, 0, 0.9);
-    padding: 12px;
-    border-radius: 6px;
-    z-index: 10;
-    pointer-events: none;
-
-}
-
-.night .map-overlay {
-
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-
-}
-
-.detail-popup {
-
-    position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background: white;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 15px;
     border-radius: 8px;
-    padding: 20px;
-    width: 280px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    z-index: 20;
-    display: none;
-
+    font-size: 0.95rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+    z-index: 1000;
+    pointer-events: none;
+    border-left: 4px solid #3498db;
 }
 
-.detail-popup.show {
-
-    display: block;
-
+.map-overlay strong {
+    color: #2c3e50;
+    font-size: 1.1rem;
 }
 
-/** DEMO points (barely visible) /**/
-.accident-point {
+.map-overlay small {
+    color: #e74c3c;
+    font-style: italic;
+}
 
-    position: absolute;
-    width: 8px;
-    height: 8px;
+/* Custom marker styles */
+.custom-marker {
     border-radius: 50%;
-    background: #e74c3c;
-    opacity: pointer;
-    z-index: 5;
-
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
-/** RIGHT PANEL /**/
+.marker-high { background-color: #e74c3c; }
+.marker-medium { background-color: #f39c12; }
+.marker-low { background-color: #27ae60; }
+
+/* RIGHT INFO PANEL */
 .info-panel {
-
-    background: white;
-    color: black;
-    padding: 20px;
+    background-color: white;
+    padding: 25px 20px;
     overflow-y: auto;
-
+    border-left: 1px solid #eee;
+    z-index: 1000;
 }
 
 .panel-header {
-
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee;
+}
 
+.panel-header h2 {
+    color: #2c3e50;
+    font-size: 1.3rem;
+}
+
+.incident-id {
+    color: #7f8c8d;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.info-section {
+    margin-bottom: 25px;
+}
+
+.info-section h3 {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .info-card {
-
-    background: rgb(0, 242, 255);
+    background-color: #f8f9fa;
     border-left: 4px solid #3498db;
-    color: #000000;
     padding: 15px;
+    border-radius: 0 8px 8px 0;
     margin-bottom: 15px;
-
 }
 
-/** BOTTOM BAR /**/
+.info-card .label {
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.info-card .value {
+    color: #555;
+    line-height: 1.5;
+}
+
+.severity-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.severity-high { background-color: #e74c3c; }
+.severity-medium { background-color: #f39c12; }
+.severity-low { background-color: #27ae60; }
+
+.similar-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.similar-link:hover {
+    text-decoration: underline;
+}
+
+/* BOTTOM BAR */
 .bottom-bar {
-  
-    grid-column: 1 / -1;
-    background: #ecf0f1;
-
-    color: black;
-    color: #000000;
-
+    grid-column: 1 / span 3;
+    background-color: #ecf0f1;
     padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-top: 1px solid #ddd;
     font-size: 0.9rem;
-
+    color: #555;
+    z-index: 1000;
 }
 
-.export-btn {
+.data-source {
+    display: flex;
+    gap: 30px;
+}
 
-    background: #27ae60;
+.user-mode {
+    background-color: #3498db;
+    color: white;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.bottom-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.export-btn, .import-btn {
     color: white;
     border: none;
     padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
 }
 
-/** Toggle switch style */
-/**
-.toggle {
+.export-btn {
+    background-color: #27ae60;
+}
 
-    display: inline-block;
-    width: 36px;
-    height: 18px;
-    border-radius: 50%;
-    background: #ffffff;
-    border: 2px solid #999;
-    border-radius: 9px;
-    position: relative;
+.export-btn:hover {
+    background-color: #219955;
+}
+
+.import-btn {
+    background-color: #f39c12;
+}
+
+.import-btn:hover {
+    background-color: #e67e22;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 450px;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    border-top: 4px solid #3498db;
+}
+
+.modal-content h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+
+.close-modal {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
-}
-*/
-.toggle-switch.active {
-
-    background: #ffffff;
-
+    color: #7f8c8d;
+    transition: color 0.2s;
 }
 
+.close-modal:hover {
+    color: #e74c3c;
+}
 
-.detail-item {
+.form-group {
+    margin-bottom: 20px;
+}
 
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #2c3e50;
     margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: border 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.submit-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #2980b9;
+}
+
+.location-info {
+    background-color: #f0f7ff;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-left: 3px solid #3498db;
 
 }
 
-.toggle-sever {
-    display: grid;
+/* Notification */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 25px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 3000;
+    animation: slideIn 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+}
+
+.notification.success {
+    background-color: #27ae60;
+}
+
+.notification.error {
+    background-color: #e74c3c;
+}
+
+.notification.info {
+    background-color: #3498db;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .container {
+        grid-template-columns: 180px 1fr 280px;
+    }
+}
+
+/* Leaflet popup customization HTML not sure if the popup shows up */
+.leaflet-popup-content {
+    margin: 15px;
+    line-height: 1.5;
+}
+
+.leaflet-popup-content strong {
+    color: #2c3e50;
+}
+
+.leaflet-container {
+    font-family: 'Segoe UI', system-ui, sans-serif;
 }
